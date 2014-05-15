@@ -1,0 +1,49 @@
+================C L O N E -- L V M -- PARTITION==============
+Here I made an experiment, that is to clone an LVM partition in other.
+	1. lvcreate -n SecondSuse -L22G <VG_name> 
+		-- 22GB, because the Partition to make that backup have 20GB.
+	2. dd if=/dev/<VG_name>/<LV_name_input> of=/dev/<VG_name>/<LV_name_output> bs=4096 conv=notrunc,noerror,sync
+		-- Copy all data with:
+	bs (block size) -- if don't use tahta option, it's will be too slow.
+	Example: 
+		without : ~9 MB/second
+		with bs=4096 : ~24MB/s
+	Then think yourself.
+	src: https://wiki.archlinux.org/index.php/Disk_Cloning
+	--- Congraduations, you have cloned this device ---	
+
+	You could to clone that in to a file.img or compresed.
+	
+	================file.img==================================
+	src: http://www.thegeekstuff.com/2010/10/dd-command-examples/
+	In to file:
+	dd if=/dev/hda of=~/hdadisk.img
+	
+	From the file:
+	dd if=hdadisk.img of=/dev/hdb
+	
+	================Compresion=================================
+	src:http://www.hanckmann.net/?q=make_a_full_hard_disk_image_in_linux
+	-----Recomended first use: "sudo swapoff -a" ------
+	In to packet:
+	sudo dd if=/dev/hd_ | gzip > /mnt/hd__/image_name.dd.gz
+	
+	-----Recomended first use: "sudo swapoff -a" ------
+	Restoring:
+	sudo gzip -dc /mnt/hd__/image_name.dd.gz | dd of=/dev/hd_
+
+===============Insert new partition in GRUB selection====================
+	src: https://wiki.archlinux.org/index.php/Grub2#LVM
+
+	If you make the first waht I show here, you have new LVm device, and wat if you can to start you PC from that new device and the original.
+
+	I made that adding new entry in grub.cfg:
+	
+menuentry 'SecondSuse' {
+        insmod lvm
+        set root=lvm/VG_casa-SecondSuse
+        linux /boot/vmlinuz-3.11.10-7-desktop root=/dev/mapper/VG_casa-SecondSuse ro
+        initrd /boot/initrd-3.11.10-7-desktop
+}
+
+	This is explained in "gub2_lvm.txt" from this directory.
