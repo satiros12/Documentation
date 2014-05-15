@@ -1,0 +1,24 @@
+----------------------------------------------------------------------------------------------------------
+----------Fast recomendations-----------------------------------------------------------------------------
+=================For Master Boot Record used Systems======================================================
+1. Tray not to auto mount "Btrfs" file system, not use that for / directory or /boot .... -->> Problems.
+2. Don't use "XFS" file system as /boot.
+3. Use ext2 for, /boot... Simply.
+----------------------------------------------------------------------------------------------------------
+At the first, be sure that this linux distribution is compatible with LVM and .... I am using MBR.
+	I testes:
+		OpenSuse -- Yes 
+		Fedora -- Yes
+		Ubuntu 12.04 -- No -- Don't find LVM partitions.
+		Ubuntu 14.0 -- ~ -- Installation problems after install Fedora and OpenSuse.
+	-- Windows XP -- ¡¡NO!! ------------------------ ; )
+
+The must important thing is that /boot partiton must to be out the LVM partiton ... then you must have a 
+primary /boot partition with some old file ssytem, like ext2... with 100 - 200 MB of space.
+
+1. Install in partitions configuration you must to use:
+	* As /boot the last metioned primary partiton.
+	* As / your LVM partiton.
+	* Recomend to have a /home partition for each Linux distributions .. then don't format this partiton 
+		.. if you don't want to last your files.	
+2. After installation, start your new SO, and make a copy of /boot partiton as a backup.

@@ -1,0 +1,40 @@
+I made no format disk and that named /dev/sda1
+
+Crear Virtual Group:
+	sudo vgcreate <Name_Group> </dev/--Device name-->
+ 
+Crear Logical Virtual Partition:
+	sudo lvcreate (--size XXG|M|T|P) | ( --extends XXXX )
+		       -n <name>
+		      <Virtual_Ggroup_NAME>
+Redimensionar una particion virtual.
+   lvresize
+	[-A|--autobackup y|n]
+	[--alloc AllocationPolicy]
+	[-d|--debug]
+	[-f|--force]
+	[-h|--help]
+	[-i|--stripes Stripes [-I|--stripesize StripeSize]]
+	{-l|--extents [+|-]LogicalExtentsNumber[%{VG|LV|PVS|FREE|ORIGIN}] |
+	 -L|--size [+|-]LogicalVolumeSize[bBsSkKmMgGtTpPeE]}
+	[-n|--nofsck]
+	[--noudevsync]
+	[-r|--resizefs]
+	[-t|--test]
+	[--type VolumeType]
+	[-v|--verbose]
+	[--version]
+	LogicalVolume[Path] [ PhysicalVolumePath... ]
+
+Renombrar una partición virtual.
+  lvrename 	
+        [-A|--autobackup {y|n}] 
+	[-d|--debug] 
+	[-h|-?|--help] 
+	[--noudevsync]
+	[-t|--test] 
+	[-v|--verbose]
+	[--version] 
+	{ OldLogicalVolumePath NewLogicalVolumePath |
+	  VolumeGroupName OldLogicalVolumeName NewLogicalVolumeName }
+
