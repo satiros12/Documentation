@@ -1,0 +1,7 @@
+Using git with Git_Hub:
+	1. Make "git init" in the directory to use GIT.
+	2. Make "git add --all" or add what you need for first commmit.
+	3. Make "git commit -m "<First message>"" for first commit node.
+	4. Add remote respitory as GitHub : "git remote add <name> <"Remote dir https: or git: ..">" to have a name of remote repo.
+	5. Make pull: "git pull <name_remote_repository> <branch>" To sinchronize with remote, where branch at the start is "master".
+	6. Make Push: "git push <name_remote_repository> <branch>" To send your files from your branch.

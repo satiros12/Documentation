@@ -22,3 +22,20 @@ primary /boot partition with some old file ssytem, like ext2... with 100 - 200 M
 	* Recomend to have a /home partition for each Linux distributions .. then don't format this partiton 
 		.. if you don't want to last your files.	
 2. After installation, start your new SO, and make a copy of /boot partiton as a backup.
+3. Copy the /boot parttion form /boot device to your /boot directory without mounted /boot device.
+		-- Yout can be sure if there is no device mounted on /boot with comands: "df" or "mount".
+4. Format device tahta you select for /boot.
+5. Reinstall grub2 there:
+	If your /boot device is /dev/sda4 , then:
+		grub2-install /dev/sda4
+6. Mount /dev/sda4 partition on /boot (yes, there are files and  no matter).
+	mount /dev/sda4 /boot
+7. Reconfigure grub2:
+	grub2-mkconfig -o /boot/grub2/grub.cfg
+
+
+-------If you are using grub instead to grub2: then make the same, but where is "grub2" put "grub".
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Not allways work!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+Thanks!
+Stan
