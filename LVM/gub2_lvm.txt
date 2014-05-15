@@ -1,0 +1,23 @@
+LVM
+If you use LVM for your /boot, add the following before menuentry lines:
+insmod lvm
+and specify your root in the menuentry as:
+set root=lvm/lvm_group_name-lvm_logical_boot_partition_name
+Example:
+# (0) Arch Linux
+menuentry "Arch Linux" {
+  insmod lvm
+  set root=lvm/VolumeGroup-lv_boot
+  # you can only set following two lines
+  linux /vmlinuz-linux root=/dev/mapper/VolumeGroup-root ro
+  initrd /initramfs-linux.img
+}
+==========================================================
+For openSuse --- -Worked for me!!
+menuentry 'SecondSuse' {
+  insmod lvm
+  set root=lvm/VolumeGroup-lv_name_boot
+  linux /vmlinuz-linux root=/dev/mapper/VolumeGroup-lv_name_boot ro
+  initrd /initramfs-linux.img
+}
+=========================================================

@@ -1,0 +1,22 @@
+------------------------------M B R--------------------------------------------------- 
+Make copy of MBR:
+	dd if=/dev/sda of=/path/mbr-backup bs=512 count=1
+Restore from copy MBR:
+	dd if=/path/mbr-backup of=/dev/sda bs=512 count=1
+
+ADV!!: If you want to restore MBR with other Partition Table, data will be don't readable.
+
+Delete MBR to full reinstall of SO:
+	dd if=/dev/zero of=/dev/sda bs=446 count=1
+--------------------------------------------------------------------------------------
+
+----------Experiments------------------------------------------------------------------------
+===========================Is LVM make influence in fisical partitions?======================
+	If change virtual partitions make problems in MBR.
+		1. Save actual MBR.
+		2. Make new partition with lvm. -- First, write something there.
+		3. Save as a new MBR. 
+		4. Delete actual MBR. --- Tryed to reboot, and saved taht yes, MBR do not was there.
+		5. Restore MBR from first MBR save. -- Rebooted and saved that now, MBR worked (MBR previous to lvm partition).
+===========================W O R K E D===================================================
+Then we see, taht LVM partitions do not don't make influence in fisical partitions taht use MBR.
