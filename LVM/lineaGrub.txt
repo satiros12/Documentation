@@ -1,0 +1,7 @@
+menuentry 'SecondSuse' {
+        insmod lvm
+        set root=lvm/VG_casa-SecondSuse
+        linux /boot/vmlinuz-3.11.10-7-desktop root=/dev/mapper/VG_casa-SecondSuse ro
+        initrd /boot/initrd-3.11.10-7-desktop
+}
+

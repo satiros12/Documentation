@@ -1,0 +1,7 @@
+If you want to resize an LVM partition, then you must to resize tahtas btrfs file system to:
+	1.Resize LVM partition.
+	2.Resize Btrfs FS mounted:
+		btrfs filesystem resize +<size: 10><Type: G> <Directory_mounted_Btrfs_Partition>
+
+That worked for me.
+Be sure tahta you have enought space on LVm partition.

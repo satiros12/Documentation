@@ -1,0 +1,10 @@
+Started: 16/05/14 -- 22:30  -- Stan
+Here I explain an test, that is seems form interesant:
+	== Install and configure a virtual machine to execute tahat in real machine ==
+
+There are steps in my experiment:
+	1. Install an SO on a Virtual machine in a .img hard disk.
+	2. Make all configurations, thata are necesary.
+	3. Boot from partition:
+		3.1. Boot directly from GRUB to .img file.
+		3.2. Copy data in to an LVM partition, and boot that from GRUB.

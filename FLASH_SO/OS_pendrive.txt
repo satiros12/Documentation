@@ -1,0 +1,9 @@
+Here I will tell about an experimet, taht is:
+	== Install an OS on Flash Memory with tahta MBR and GRUB ==
+The steps are:
+	1. Install SO on a Pendrive.
+	2. Install grub in to pendrive.
+	3. Try to boot from that.
+
+	#4. Thry to add an entry to usual GRUB, to boot from USB.
+

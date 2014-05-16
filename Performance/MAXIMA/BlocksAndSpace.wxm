@@ -1,0 +1,82 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 11.08.0 ] */
+
+/* [wxMaxima: comment start ]
+General functions:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+BtoKB(dataBytes):=dataBytes/2**10;
+BtoMB(dataBytes):=dataBytes/2**20;
+BtoGB(dataBytes):=dataBytes/2**30;
+KBtoB(dataBytes):=dataBytes/2**10;
+MBtoB(dataBytes):=dataBytes/2**20;
+GBtoB(dataBytes):=dataBytes/2**30;
+BlocktoB(bl,bs):=bl * bs;
+BlocktoKB(bl,bs):=BtoKB(BlocktoB(bl,bs));
+BlocktoMB(bl,bs):=BtoMB(BlocktoB(bl,bs));
+BlocktoGB(bl,bs):=BtoGB(BlocktoB(bl,bs));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Space with blocks:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+block:168890365 - 2048;
+block_size:512;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Bytes:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+float(BlocktoB(block,block_size));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+KBytes
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+float(BlocktoKB(block,block_size));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+MBytes
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+float(BlocktoMB(block,block_size));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+GByts
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+float(BlocktoGB(block,block_size));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Calcule for dd comand:
+    bs : simultaneously Bytes.
+    count : nº of blocks.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+bs:
+count:;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+FileSize:;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ec1: bs * count =;
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

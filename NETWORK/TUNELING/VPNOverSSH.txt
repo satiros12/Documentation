@@ -1,0 +1,17 @@
+Here we are going to make a SSH, VPN, Layer 3 Tunel:
+	
+	1. Configure your "/etc/ssh/sshd_config" files on Client and Server machines.
+	2. Send destinys rsa-public-key for ssh connection without pass.
+	3. Type as root:
+		ssh -w 0:1 root@<ip-dest> & #Execute in background, to close then.
+	4. See if there apear new interface:
+		Client: tun0
+		Server: tun1
+	5. Setup that interfaces:
+		ifconfig tunX <Ip_Interface> netmask <NetMask_private_Net>
+			#Where x is 0 or 1 if you are Client or Server.
+	6. Try ping there.
+	7. Make the route:
+		route add -net <DST_NETWORK> netmask <MASK_DST_NETWORK> gateway <IP_TUN_INTERFACE>
+
+		#You can use supernetting or subnetting in routing to enclose aviable routed networks.

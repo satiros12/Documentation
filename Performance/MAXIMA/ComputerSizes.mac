@@ -1,0 +1,21 @@
+
+BtoKB(dataBytes):=dataBytes/2**10;
+
+BtoMB(dataBytes):=dataBytes/2**20;
+
+BtoGB(dataBytes):=dataBytes/2**30;
+
+KBtoB(dataBytes):=dataBytes/2**10;
+
+MBtoB(dataBytes):=dataBytes/2**20;
+
+GBtoB(dataBytes):=dataBytes/2**30;
+
+BlocktoB(bl,bs):=bl * bs;
+
+BlocktoKB(bl,bs):=BtoKB(BlocktoB(bl,bs));
+
+BlocktoMB(bl,bs):=BtoMB(BlocktoB(bl,bs));
+
+BlocktoGB(bl,bs):=BtoGB(BlocktoB(bl,bs));
+
