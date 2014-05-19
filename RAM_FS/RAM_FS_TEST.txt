@@ -1,0 +1,20 @@
+Resently I fond RAM file systems that have 10s faster than SSD, then I wanted to try that.
+I will try to make new partition with ram FS, and see speed by myself.
+
+---With mount------SRC:http://www.jamescoyle.net/how-to/943-create-a-ram-disk-in-linux
+mount -t [TYPE] -o size=[SIZE] [FSTYPE] [MOUNTPOINT]
+Example: mount -t tmpfs -o size=512m tmpfs /mnt/ramdisk
+Add to FS tab: 
+tmpfs       /mnt/ramdisk tmpfs   nodev,nosuid,noexec,nodiratime,size=1024M   0 0
+---With mkfs------SRC:http://www.cyberciti.biz/faq/howto-create-linux-ram-disk-filesystem/
+# mkfs -q /dev/ram1 8192 #Creating for 8MB
+# mkdir -p /ramcache
+# mount /dev/ram1 /ramcache
+# df -H | grep ramcache
+
+================================ USE RAM FS for DEBIAN =============================================0
+	1. Create RAM FS for Debian.
+	2. Create a service that check integrity of files on DISK and on RAM, at the same time.
+	3. Make service that when SO is shuting down, that service make last check and save last data on Disk.
+
+--- Persistent SO over RAM FS.

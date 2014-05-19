@@ -1,0 +1,13 @@
+Here I will give some teps to mount a partition, that is in a file.img:
+	src:http://askubuntu.com/questions/69363/mount-single-partition-from-image-of-entire-disk-device
+
+	1. know abou partitiona, block sizes and asigned blocks:	
+		fdisk -lu <file>.img
+	2. losetup -o "$((<block_size>*<start_block_partition_to_mount>))" /dev/loop0 <file>.img
+	3. Mount:
+		#check persistence: fsck -fv /dev/loop0
+		mount /dev/loop0 /mnt
+
+For umounting:
+	1. umount /mnt
+	2. losetup -d /dev/loop0

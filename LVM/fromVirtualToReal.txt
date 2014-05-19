@@ -8,3 +8,34 @@ There are steps in my experiment:
 	3. Boot from partition:
 		3.1. Boot directly from GRUB to .img file.
 		3.2. Copy data in to an LVM partition, and boot that from GRUB.
+
+1. In grub put directly debians LVM, dont work, because is in other LVM's place.
+	-- Try to copy all SUB LVM parts to my own LVM_GRUP-- Try to copy all SUB LVM parts to my own LVM_GRUP
+
+(3.2)
+	Executed:
+		1. First I had my partitions separated in diferent LVM partitions (/etc, /usr, /var ...).
+		2. I sawd partitions of that disk and block size with: "fdisk -lu <file>.img"
+		3. I mounted first boot partition of debian: 
+				"losetup -o <start_block> /dev/loop0 <file>.img"
+				"mount /dev/loop0 /boot"
+		4. and made a tar of that: "tar -cf Debian_boot.tar /boot" #to preserve vmlinuz and init files.
+		5. Copyed thata .tar file to my own home direcotry.
+		6. Un mounted that partition:
+			umount /boot		
+			losetup -d /dev/loop0
+		7. Mounted LVM partition to /dev/loop0, same as 3.
+		8. -- VGDISPLAY -- Maybe deted new Virtual group, then you can pas to "10" point.
+		9. Mount /dev/loop0 /mnt : the see if lvmdispay finded that new Virtual group.
+		10. When LVMDISPLAY founded new partition, mount each LVM partitions in a direcotry (Build the tree)
+				EX: 
+					/LVM-root -> /mnt
+					/LVM-etc -> /mnt/etc
+					...
+		11. Copy All files from foldeer where all is mounted:
+			cp -rpf mnt/* /<Target_mounted_Partition>
+				#r: With folders. p: Without touching files. f: forced.
+		12. Umount all Debian LVM partitions and go to partition where Files are copyed, to taka notes about:
+			vmlinuz and init files : where are and names.
+		13.Introduce new entry in GRUB2 like in grub2_lvm.txt.
+		14. reboot and see. (Be careful with file system format (VM where installed Debian and where is copyed)).
