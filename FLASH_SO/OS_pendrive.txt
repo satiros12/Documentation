@@ -7,3 +7,14 @@ The steps are:
 
 	#4. Thry to add an entry to usual GRUB, to boot from USB.
 
+I made for today:
+	1. Copied Debian partition data to USB.
+	2. Configured Grub2 of PC to use init and vmlinuz of USB.
+	 --> Finded with /dev/sdc1
+	¡ERROR! --> Tryed to launch, but didn't finished, at all, and started RAM Little SO, BusyBox.
+
+Future ways:
+-- Try to use ram FS, and make synchronizations with Disk.
+-- Try to use partial ram FS, nly for some folders.
+-- Try to install new OS for USB directly.
+-- Try to make LVM partition in USB and try to start Debien from there.

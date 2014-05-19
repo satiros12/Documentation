@@ -1,0 +1,26 @@
+Here I will present some experiments to get a TCP connection betwen Private Networks that are connected by NAT.
+I want to make that connection without opening Router Nat ports manually, I wan to use Nat Properties.
+
+Requests:
+	1. Can use an Server, but no for hight weight data transmision, only for signaling.
+	2. Better if it will be TCP connection.
+	3. Nat may to have changeble IPv4 for that outside interface.
+	4. That TCP connections can encapsulate external information.
+	5. Other resources inside private net can be used.
+
+Ways:
+	1. Simulate an three-way handshake, betwen PC's from private Networks.
+	2. Packet injection, chenging src IP and PORT.
+
+------------------- WAY 2 --------- Packet Injection ------------------------------------------------------------
+
+	Here are some problems:
+		
+		1. If your Nat router can otput your packets with changed addres.
+		2. Server don't know your open port for Private Network 2 connection.
+
+------------------- WAY 1 --------- Three-way Handshake ---------------------------------------------------------
+
+	Here problems are:
+		
+		1. Network A don't know port that Network B is going to use for connection (nmap intensive rying, using tcp connection 				timmer).
